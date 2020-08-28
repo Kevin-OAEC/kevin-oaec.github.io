@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Nginx | 小汪老师</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://xwls.github.io/favicon.ico?v=1598618673948">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xwls.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://xwls.github.io">
+        <img class="avatar" src="https://xwls.github.io/images/avatar.png?v=1598618673948" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://xwls.github.io">
+        <h1 class="site-title">小汪老师</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> Nginx
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://xwls.github.io/post/3pJP6P-vA/">
+        <h2 class="post-title">Nginx配置http自动跳转到https</h2>
+      </a>
+      <div class="post-abstract">
+        <p>前几天在阿里云申请了一个免费的SSL证书，给网站配置了https访问，顺便配置了http自动跳转到https，在这里记录下配置文件。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-10-22</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://xwls.github.io/tag/x-t3gW3bm/">
+                Linux
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://xwls.github.io/tag/6db4iKEZc5/">
+                Nginx
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://xwls.github.io/post/3pJP6P-vA/">
+        <div class="feature-container" style="background-image: url('https://i.loli.net/2019/10/22/5raWUsgLCM62okS.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://xwls.github.io/post/5l106T54h/">
+        <h2 class="post-title">Nginx配置负载均衡</h2>
+      </a>
+      <div class="post-abstract">
+        <p>负载均衡建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。接下来以两个Tomcat为例简单说一下Nginx如何配置负载均衡。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-08-26</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://xwls.github.io/tag/x-t3gW3bm/">
+                Linux
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://xwls.github.io/tag/6db4iKEZc5/">
+                Nginx
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://xwls.github.io/post/5l106T54h/">
+        <div class="feature-container" style="background-image: url('https://i.loli.net/2019/10/22/YMse2D6GEtUNZgh.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://xwls.github.io/post/utl7yOrQ6/">
+        <h2 class="post-title">使用nginx代理tomcat</h2>
+      </a>
+      <div class="post-abstract">
+        <blockquote>
+<p>在计算机网络中，反向代理是代理服务器的一种。服务器根据客户端的请求，从其关联的一组或多组后端服务器（如Web服务器）上获取资源，然后再将这些资源返回给客户端，客户端只会得知反向代理的IP地址，而不知道在代理服务器后面的服务器簇的存在<br>
+反向代理的工作原理是，代理服务器来接受客户端的网络访问连接请求，然后服务器将请求有策略的转发给网络中实际工作的业务服务器，并将从业务服务器处理的结果，返回给网络上发起连接请求的客户端。</p>
+</blockquote>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-08-26</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://xwls.github.io/tag/x-t3gW3bm/">
+                Linux
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://xwls.github.io/tag/6db4iKEZc5/">
+                Nginx
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://xwls.github.io/post/utl7yOrQ6/">
+        <div class="feature-container" style="background-image: url('https://i.loli.net/2019/10/22/xnyDjhz9T8VlFai.png')">
+        </div>
+      </a>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+  
+</div>
+
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://xwls.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

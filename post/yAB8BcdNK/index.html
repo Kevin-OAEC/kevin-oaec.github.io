@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Linux源码安装Nginx | 小汪老师</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://xwls.github.io/favicon.ico?v=1598618673948">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xwls.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://xwls.github.io">
+        <img class="avatar" src="https://xwls.github.io/images/avatar.png?v=1598618673948" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://xwls.github.io">
+        <h1 class="site-title">小汪老师</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://i.loli.net/2019/10/22/XwVQhAx7PzGLsid.png')">
+            </div>
+          
+          <h2 class="post-title">Linux源码安装Nginx</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-08-26</span>
+            
+          </div>
+          <div class="post-content">
+            <blockquote>
+<p>Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
+</blockquote>
+<!-- more -->
+<p>在CentOS7下以软件源码包的方式安装Nginx，主要分为：下载、解压缩、配置、编译、安装几个步骤，其他源码包软件的安装方式类似。</p>
+<h2 id="安装nginx需要的依赖">安装nginx需要的依赖</h2>
+<pre><code class="language-shell"># 安装gcc
+yum install -y gcc
+# 安装gcc-c++
+yum install -y gcc-c++
+# 安装pcre pcre-devel
+yum install -y pcre pcre-devel
+# 安装zlib zlib-devel
+yum install -y zlib zlib-devel
+# 安装openssl openssl-devel
+yum install -y openssl openssl-devel
+</code></pre>
+<h2 id="下载">下载</h2>
+<pre><code class="language-shell">wget http://nginx.org/download/nginx-1.16.1.tar.gz
+</code></pre>
+<h2 id="解压缩">解压缩</h2>
+<pre><code class="language-shell">tar -zxvf nginx-1.16.1.tar.gz
+</code></pre>
+<h2 id="安装">安装</h2>
+<pre><code class="language-shell"># 进入解压得到的目录
+cd nginx-1.16.1
+# 配置
+./configure
+# 编译
+make
+# 安装
+make install
+</code></pre>
+<h2 id="启动-停止">启动、停止</h2>
+<pre><code class="language-shell"># 进入/usr/local/nginx/sbin
+cd /usr/local/nginx/sbin
+# 启动
+./nginx
+# 停止
+./nginx -s stop
+# 重启
+./nginx -s reload
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://xwls.github.io/post/n0Zh-K8Pf/">
+              <h3 class="post-title">
+                下一篇：SpringBoot整合Mybtatis-Plus
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://xwls.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '652d78b23a4134e36cf4',
+        clientSecret: 'd0f85a7b10b97206ecee873bbe34af1ceafbac30',
+        repo: 'xwls.github.io',
+        owner: 'xwls',
+        admin: ['xwls'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

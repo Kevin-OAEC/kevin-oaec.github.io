@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>工具方法-判断当前时间是否在指定时间范围 | 小汪老师</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://xwls.github.io/favicon.ico?v=1598618673948">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xwls.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://xwls.github.io">
+        <img class="avatar" src="https://xwls.github.io/images/avatar.png?v=1598618673948" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://xwls.github.io">
+        <h1 class="site-title">小汪老师</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">工具方法-判断当前时间是否在指定时间范围</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-08-13</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://xwls.github.io/tag/QO6GQ-upd/">
+                    工具
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://xwls.github.io/tag/m0Auea3ByV/">
+                    Golang
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://xwls.github.io/tag/6hpRPfaCF9/">
+                    C#
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://xwls.github.io/tag/wFsZKruwgW/">
+                    Java
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>项目中遇到一个需求，简单来说就是预约和抢购，预约有开始时间和结束时间，抢购也有开始时间和结束时间，这些时间只需要在数据库中存储的是<code>time</code>类型，因为只需要小时分钟秒，不需要年月日。分享几个工具方法，用来比较当前时间是否在指定时间范围。</p>
+<!-- more -->
+<h2 id="golang">Golang</h2>
+<pre><code class="language-go">//当前时间是否在指定范围内
+//参数为时间字符串，格式为&quot;时:分:秒&quot;
+func IsNowInTimeRange(startTimeStr, endTimeStr string) bool {
+	//当前时间
+	now := time.Now()
+	//当前时间转换为&quot;年-月-日&quot;的格式
+	format := now.Format(&quot;2006-01-02&quot;)
+	//转换为time类型需要的格式
+	layout := &quot;2006-01-02 15:04:05&quot;
+	//将开始时间拼接“年-月-日 ”转换为time类型
+	timeStart, _ := time.ParseInLocation(layout, format+&quot; &quot;+startTimeStr, time.Local)
+	//将结束时间拼接“年-月-日 ”转换为time类型
+	timeEnd, _ := time.ParseInLocation(layout, format+&quot; &quot;+endTimeStr, time.Local)
+	//使用time的Before和After方法，判断当前时间是否在参数的时间范围
+	return now.Before(timeEnd) &amp;&amp; now.After(timeStart)
+}
+</code></pre>
+<h2 id="java">Java</h2>
+<pre><code class="language-java">/**
+ * 判断当前时间是否在指定时间内
+ * @param startTimeStr 开始时间
+ * @param endTimeStr 结束时间
+ * @return true：在；false：不在
+ */
+public static boolean isNowInTimeRange(String startTimeStr, String endTimeStr) {
+    LocalTime startTime = LocalTime.parse(startTimeStr);
+    LocalTime endTime = LocalTime.parse(endTimeStr);
+    int startCompare = startTime.compareTo(LocalTime.now());
+    int endCompare = endTime.compareTo(LocalTime.now());
+    return startCompare * endCompare &lt;= 0;
+}
+</code></pre>
+<h2 id="c">C#</h2>
+<pre><code class="language-c#">/// &lt;summary&gt;
+/// 判断当前时间是否在时间段之间
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;startTime&quot;&gt;开始时间&lt;/param&gt;
+/// &lt;param name=&quot;endTime&quot;&gt;结束时间&lt;/param&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+public static bool NowTimeBetweenTwoTimes(string startTimeStr, string endTimeStr, int serverTimeStamp)
+{
+    // 解析时间
+    DateTime startTime = DateTime.Parse(startTimeStr);
+    DateTime endTime = DateTime.Parse(endTimeStr);
+
+    TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+    DateTime serverTime = TimeStampToDateTime(serverTimeStamp);
+    // t1小于t2 小于零 t1等于t2 等于零 t1大于t2 大于零
+    int startCompare = DateTime.Compare(startTime, serverTime);
+    int endCompare = DateTime.Compare(endTime, serverTime);
+    return startCompare * endCompare &lt;= 0;
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://xwls.github.io/post/fUCRUi8Qk/">
+              <h3 class="post-title">
+                下一篇：SpringBoot整合Shiro实现认证和授权
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://xwls.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '652d78b23a4134e36cf4',
+        clientSecret: 'd0f85a7b10b97206ecee873bbe34af1ceafbac30',
+        repo: 'xwls.github.io',
+        owner: 'xwls',
+        admin: ['xwls'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

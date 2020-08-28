@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>CentOS下安装MySQL5.7 | 小汪老师</title>
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://xwls.github.io/favicon.ico?v=1598618673948">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://xwls.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://xwls.github.io">
+        <img class="avatar" src="https://xwls.github.io/images/avatar.png?v=1598618673948" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://xwls.github.io">
+        <h1 class="site-title">小汪老师</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://i.loli.net/2019/10/22/sklYSW6ZiLXDC3v.png')">
+            </div>
+          
+          <h2 class="post-title">CentOS下安装MySQL5.7</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-10-22</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://xwls.github.io/tag/JZW6980WZ/">
+                    MySQL
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://xwls.github.io/tag/x-t3gW3bm/">
+                    Linux
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>记录一下在CentOS7中安装MySQL5.7版本遇到的一个小问题，顺便记录下安装过程</p>
+<!-- more -->
+<h1 id="安装mysql57的安装源">安装MySQL5.7的安装源</h1>
+<pre><code class="language-shell">yum localinstall http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+</code></pre>
+<h1 id="安装mysql57">安装MySQL5.7</h1>
+<pre><code class="language-shell">yum install mysql-community-server
+</code></pre>
+<h1 id="启动并设置开机自启">启动并设置开机自启</h1>
+<pre><code class="language-shell">systemctl start mysqld
+systemctl enable mysqld
+</code></pre>
+<h1 id="查看root密码">查看root密码</h1>
+<pre><code class="language-shell">grep 'temporary password' /var/log/mysqld.log
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/09/03/IX73RthTMQ4xk6A.png" alt="image.png" loading="lazy"></figure>
+<p>可以看到我这边的密码为：<code>:/XaahH&amp;%5Qe</code>，是的，包含开始的冒号，我一开始以为冒号后边才是，试了几次发现不对，冒号也是！！！</p>
+<p>注意这个密码只能够让你登录到MySQL，登录进去之后必须马上修改密码，否则无法进行其他任何的操作。</p>
+<h1 id="修改root密码本篇重点">修改root密码（本篇重点）</h1>
+<p>修改密码的命令：</p>
+<pre><code class="language-sql">ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+</code></pre>
+<p>我希望给root设置一个简单的密码，比如<code>123456</code>，但是发现并不可以</p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/09/03/vSbtzAZpwXCTo2P.png" alt="image.png" loading="lazy"></figure>
+<p>意思是说我的密码太过简单不符合他的密码策略，但是我想查询或者修改密码策略必须先设置密码才可以，无奈之下，先设置一个复杂的：</p>
+<pre><code class="language-sql">ALTER USER 'root'@'localhost' IDENTIFIED BY 'OracleOAEC$2019';
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/09/03/XvWKmZbgRcj5yuY.png" alt="image.png" loading="lazy"></figure>
+<p>密码设置好了，接下来看下密码策略：</p>
+<pre><code class="language-sql">SHOW VARIABLES LIKE 'validate_password%';
+</code></pre>
+<p>这里挑了几个说明下：</p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/09/03/Eg2HZK9sF1Ayc6d.png" alt="image.png" loading="lazy"></figure>
+<p>我想设置的密码是简单密码<code>123456</code>，需要将<code>validate_password_policy</code>设置为<code>LOW</code>，设置为<code>LOW</code>之后就只验证长度，同时还需要设置<code>validate_password_length</code>为<code>6</code>：</p>
+<pre><code class="language-sql">set global validate_password_policy=LOW;
+set global validate_password_length=6; 
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/09/03/7eCtQv4fwEpN2Fr.png" alt="image.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2019/09/03/GcPgxKjtWwQoaH2.png" alt="image.png" loading="lazy"></figure>
+<p>然后再尝试修改密码为<code>123456</code>：</p>
+<pre><code class="language-sql">ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2019/09/03/acgvAtPFnN2bHrS.png" alt="image.png" loading="lazy"></figure>
+<p>可以发现，密码已经成功修改为<code>123456</code></p>
+<h1 id="允许root远程登录">允许root远程登录</h1>
+<pre><code class="language-sql">GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://xwls.github.io/post/lRVZQwo3S/">
+              <h3 class="post-title">
+                下一篇：CentOS7安装Jenkins
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://xwls.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '652d78b23a4134e36cf4',
+        clientSecret: 'd0f85a7b10b97206ecee873bbe34af1ceafbac30',
+        repo: 'xwls.github.io',
+        owner: 'xwls',
+        admin: ['xwls'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

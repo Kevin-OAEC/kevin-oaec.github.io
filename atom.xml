@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://xwls.github.io</id>
+    <title>小汪老师</title>
+    <updated>2020-08-28T12:44:38.166Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://xwls.github.io"/>
+    <link rel="self" href="https://xwls.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://xwls.github.io/images/avatar.png</logo>
+    <icon>https://xwls.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, 小汪老师</rights>
+    <entry>
+        <title type="html"><![CDATA[工具方法-判断当前时间是否在指定时间范围]]></title>
+        <id>https://xwls.github.io/post/JFSaV8nCE/</id>
+        <link href="https://xwls.github.io/post/JFSaV8nCE/">
+        </link>
+        <updated>2020-08-13T07:45:53.000Z</updated>
+        <summary type="html"><![CDATA[<p>项目中遇到一个需求，简单来说就是预约和抢购，预约有开始时间和结束时间，抢购也有开始时间和结束时间，这些时间只需要在数据库中存储的是<code>time</code>类型，因为只需要小时分钟秒，不需要年月日。分享几个工具方法，用来比较当前时间是否在指定时间范围。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>项目中遇到一个需求，简单来说就是预约和抢购，预约有开始时间和结束时间，抢购也有开始时间和结束时间，这些时间只需要在数据库中存储的是<code>time</code>类型，因为只需要小时分钟秒，不需要年月日。分享几个工具方法，用来比较当前时间是否在指定时间范围。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SpringBoot整合Shiro实现认证和授权]]></title>
+        <id>https://xwls.github.io/post/fUCRUi8Qk/</id>
+        <link href="https://xwls.github.io/post/fUCRUi8Qk/">
+        </link>
+        <updated>2019-12-27T14:18:16.000Z</updated>
+        <summary type="html"><![CDATA[<p>Shiro是Apache软件基金会下有名的安全框架，本文记录在SpringBoot中如何使用Shiro实现用户认证及授权。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Shiro是Apache软件基金会下有名的安全框架，本文记录在SpringBoot中如何使用Shiro实现用户认证及授权。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Windows下安装MySQL5.7.28压缩版]]></title>
+        <id>https://xwls.github.io/post/ChpYxU68B/</id>
+        <link href="https://xwls.github.io/post/ChpYxU68B/">
+        </link>
+        <updated>2019-10-24T08:41:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>关于MySQL，之前大部分都是在Linux下安装使用，在Windows下也用过，但用的都是安装版，这里记录一下Windows下MySQL压缩版的安装和配置过程。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>关于MySQL，之前大部分都是在Linux下安装使用，在Windows下也用过，但用的都是安装版，这里记录一下Windows下MySQL压缩版的安装和配置过程。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nginx配置http自动跳转到https]]></title>
+        <id>https://xwls.github.io/post/3pJP6P-vA/</id>
+        <link href="https://xwls.github.io/post/3pJP6P-vA/">
+        </link>
+        <updated>2019-10-22T07:49:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>前几天在阿里云申请了一个免费的SSL证书，给网站配置了https访问，顺便配置了http自动跳转到https，在这里记录下配置文件。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>前几天在阿里云申请了一个免费的SSL证书，给网站配置了https访问，顺便配置了http自动跳转到https，在这里记录下配置文件。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CentOS下安装MySQL5.7]]></title>
+        <id>https://xwls.github.io/post/lAZaPV_9G/</id>
+        <link href="https://xwls.github.io/post/lAZaPV_9G/">
+        </link>
+        <updated>2019-10-22T07:37:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>记录一下在CentOS7中安装MySQL5.7版本遇到的一个小问题，顺便记录下安装过程</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>记录一下在CentOS7中安装MySQL5.7版本遇到的一个小问题，顺便记录下安装过程</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CentOS7安装Jenkins]]></title>
+        <id>https://xwls.github.io/post/lRVZQwo3S/</id>
+        <link href="https://xwls.github.io/post/lRVZQwo3S/">
+        </link>
+        <updated>2019-10-08T01:43:37.000Z</updated>
+        <summary type="html"><![CDATA[<p>更多内容请查看Jenkins官方文档：<a href="https://pkg.jenkins.io/redhat-stable/">https://pkg.jenkins.io/redhat-stable/</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>更多内容请查看Jenkins官方文档：<a href="https://pkg.jenkins.io/redhat-stable/">https://pkg.jenkins.io/redhat-stable/</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nginx配置负载均衡]]></title>
+        <id>https://xwls.github.io/post/5l106T54h/</id>
+        <link href="https://xwls.github.io/post/5l106T54h/">
+        </link>
+        <updated>2019-08-26T03:16:10.000Z</updated>
+        <summary type="html"><![CDATA[<p>负载均衡建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。接下来以两个Tomcat为例简单说一下Nginx如何配置负载均衡。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>负载均衡建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。接下来以两个Tomcat为例简单说一下Nginx如何配置负载均衡。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[使用nginx代理tomcat]]></title>
+        <id>https://xwls.github.io/post/utl7yOrQ6/</id>
+        <link href="https://xwls.github.io/post/utl7yOrQ6/">
+        </link>
+        <updated>2019-08-26T02:26:20.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>在计算机网络中，反向代理是代理服务器的一种。服务器根据客户端的请求，从其关联的一组或多组后端服务器（如Web服务器）上获取资源，然后再将这些资源返回给客户端，客户端只会得知反向代理的IP地址，而不知道在代理服务器后面的服务器簇的存在<br>
+反向代理的工作原理是，代理服务器来接受客户端的网络访问连接请求，然后服务器将请求有策略的转发给网络中实际工作的业务服务器，并将从业务服务器处理的结果，返回给网络上发起连接请求的客户端。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>在计算机网络中，反向代理是代理服务器的一种。服务器根据客户端的请求，从其关联的一组或多组后端服务器（如Web服务器）上获取资源，然后再将这些资源返回给客户端，客户端只会得知反向代理的IP地址，而不知道在代理服务器后面的服务器簇的存在<br>
+反向代理的工作原理是，代理服务器来接受客户端的网络访问连接请求，然后服务器将请求有策略的转发给网络中实际工作的业务服务器，并将从业务服务器处理的结果，返回给网络上发起连接请求的客户端。</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux源码安装Nginx]]></title>
+        <id>https://xwls.github.io/post/yAB8BcdNK/</id>
+        <link href="https://xwls.github.io/post/yAB8BcdNK/">
+        </link>
+        <updated>2019-08-26T01:31:52.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SpringBoot整合Mybtatis-Plus]]></title>
+        <id>https://xwls.github.io/post/n0Zh-K8Pf/</id>
+        <link href="https://xwls.github.io/post/n0Zh-K8Pf/">
+        </link>
+        <updated>2019-08-14T08:29:39.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="简介">简介</h2>
+<p><a href="https://github.com/baomidou/mybatis-plus">MyBatis-Plus</a>（简称 MP）是一个 <a href="http://www.mybatis.org/mybatis-3/">MyBatis</a> 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="简介">简介</h2>
+<p><a href="https://github.com/baomidou/mybatis-plus">MyBatis-Plus</a>（简称 MP）是一个 <a href="http://www.mybatis.org/mybatis-3/">MyBatis</a> 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+]]></content>
+    </entry>
+</feed>
